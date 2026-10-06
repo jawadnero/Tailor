@@ -68,9 +68,9 @@ function Workspace({ user }) {
           </motion.div>
         </AnimatePresence>
         <nav className="mobile-nav" aria-label="Mobile navigation">
-          <Link to="/dashboard"><span>⌂</span>Home</Link>
-          <Link to="/customers"><span>♙</span>Customers</Link>
-          <Link to="/orders"><span>▤</span>Orders</Link>
+          <Link className={location.pathname.startsWith('/dashboard') ? 'active' : ''} to="/dashboard"><span>⌂</span>Home</Link>
+          <Link className={location.pathname.startsWith('/customers') ? 'active' : ''} to="/customers"><span>♙</span>Customers</Link>
+          <Link className={location.pathname.startsWith('/orders') ? 'active' : ''} to="/orders"><span>▤</span>Orders</Link>
           <button onClick={() => setMoreOpen(!moreOpen)}><span>•••</span>More</button>
           {moreOpen && <div className="mobile-more"><Link to="/settings" onClick={() => setMoreOpen(false)}>Settings</Link><button onClick={signOut}>Log out</button></div>}
         </nav>
