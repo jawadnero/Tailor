@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { getCustomers, getOrders } from '../store'
+import { getCustomers, getOrders } from '../Store.js'
 
 export default function Dashboard({ user }) {
   const customers = getCustomers(user.id)

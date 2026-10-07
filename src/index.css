@@ -608,3 +608,38 @@ body { background:#d7d7d5; color:var(--ink); }
   .auth-layout { padding:0; grid-template-columns:1fr; }.auth-aside { min-height:400px; }.auth-panel { min-height:auto; }.auth-aside-copy h1 { font-size:58px; }
   .sidebar { margin:0; border-radius:0; }.topbar { margin:0; border:0; border-bottom:1px solid #000; border-radius:0; }.route-content { margin:0; border:0; border-radius:0; }.mobile-nav { border-top:1.5px solid #000; background:#f7f4ed; }.mobile-nav > a.active { color:#000; }.mobile-nav > a.active span { width:30px; height:24px; display:grid; place-items:center; border-radius:999px; background:#ffb42e; }
 }
+
+/* Full-width desktop layout fix — remove unused grey side gutters */
+@media (min-width: 901px) {
+  .landing {
+    width: 100%;
+    padding: 0;
+    background: var(--paper);
+  }
+  .landing-nav,
+  .landing-hero,
+  .feature-section,
+  .how-section,
+  .landing-cta,
+  .landing-footer {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .landing-nav,
+  .landing-hero,
+  .feature-section,
+  .how-section,
+  .landing-footer {
+    padding-left: clamp(28px, 5vw, 88px);
+    padding-right: clamp(28px, 5vw, 88px);
+  }
+  .landing-cta {
+    padding-left: clamp(40px, 6vw, 104px);
+    padding-right: clamp(40px, 6vw, 104px);
+  }
+  .landing-hero {
+    grid-template-columns: minmax(430px, .9fr) minmax(560px, 1.1fr);
+  }
+}
