@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { updateTailor } from '../store.js'
+import { updateTailor } from '../store'
 
 export default function Settings({ user }) {
   const [form, setForm] = useState({ name: user.name || '', shop: user.shop || '', phone: user.phone || '', email: user.email || '' })

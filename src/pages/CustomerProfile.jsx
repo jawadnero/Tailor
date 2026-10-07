@@ -1,6 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { getCustomer, getOrders } from '../store.js'
+import { getCustomer, getOrders } from '../store'
 
 const formatDate = (date) => new Date(date).toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' })
 

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import { getCustomers, createOrder } from '../store.js'
+import { getCustomers, createOrder } from '../store'
 
 const dateValue = (date) => {
   const year = date.getFullYear()
