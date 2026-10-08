@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { getCustomers, getOrders } from '../store.js'
+import { getCustomers, getOrders } from '../Store.js'
 import { useLanguage } from '../i18n'
 
 export default function Dashboard({user}) {

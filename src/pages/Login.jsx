@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { login, signup } from '../store.js'
+import { login, signup } from '../Store.js'
 
 export default function Login() {
   const navigate = useNavigate()
