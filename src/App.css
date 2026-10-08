@@ -182,3 +182,19 @@
     border-right-color: var(--border);
   }
 }
+/* Clear, high-contrast tailor-friendly workspace; landing and login untouched */
+.app-shell{font-family:system-ui,'Noto Nastaliq Urdu','Noto Sans Arabic',sans-serif}
+.app-shell .sidebar{background:#fff;box-shadow:none;border-right:1px solid #e6e6e6}
+.app-shell .side-links a{font-size:17px;font-weight:650;padding:14px 16px;border-radius:12px}
+.app-shell .page h1{font-size:clamp(26px,3vw,36px);line-height:1.35}
+.app-shell .page p,.app-shell label,.app-shell input,.app-shell select,.app-shell button{font-size:16px}
+.app-shell .btn{min-height:46px;font-weight:700;border-radius:10px}
+.app-shell .panel,.app-shell .stat-card,.app-shell .customer-card{box-shadow:none!important;border:1px solid #e4e4e4;border-radius:14px}
+.app-shell .eyebrow,.app-shell .dashboard-note,.app-shell .stat-more{display:none}
+.app-shell .stat-grid{gap:12px}
+.app-shell .stat-card{min-height:125px}
+.app-shell .route-content{max-width:1200px;width:100%;margin-inline:auto}
+.language-switch{display:flex;gap:4px;border:1px solid #ddd;padding:4px;border-radius:10px;background:white;flex-shrink:0}
+.language-switch button{padding:7px 12px;border:0;border-radius:7px;background:transparent;color:#333;cursor:pointer;font-size:15px;font-weight:700}
+.language-switch button.chosen{background:#243e35;color:white}
+@media(max-width:700px){.app-shell .topbar{gap:8px}.app-shell .topbar-greeting{display:none}.language-switch button{padding:7px 9px}.app-shell .page{padding:18px 14px}.app-shell .page-heading{gap:14px}}

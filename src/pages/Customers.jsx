@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { addCustomer, deleteCustomer, getCustomers, updateCustomer } from '../Store.js'
+import { addCustomer, deleteCustomer, getCustomers, updateCustomer } from '../store.js'
 
 const emptyForm = { name: '', phone: '', address: '', notes: '' }
 
@@ -63,7 +63,7 @@ export default function Customers({ user }) {
           <motion.article className="customer-card" key={customer.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.97 }} transition={{ delay: index * 0.025 }}>
             <div className="customer-card-top"><span className="avatar large">{customer.name.charAt(0).toUpperCase()}</span><div><h2>{customer.name}</h2><p>{customer.phone}</p></div><div className="card-menu"><button aria-label={`Edit ${customer.name}`} onClick={() => edit(customer)}>Edit</button><button aria-label={`Delete ${customer.name}`} onClick={() => remove(customer)}>Delete</button></div></div>
             <p className="customer-address">{customer.address || 'No address added'}</p>
-            <div className="customer-card-bottom"><span>{customer.measurements?.length || 0} saved measurement{customer.measurements?.length === 1 ? '' : 's'}</span><Link to={`/customers/${customer.id}`}>View profile <b>→</b></Link></div>
+            <div className="customer-card-bottom easy-customer-buttons"><Link className="easy-measure-btn" to={`/customers/${customer.id}/measurements`}>📏 Measurements / ناپ</Link><Link to={`/customers/${customer.id}`}>Open customer →</Link></div>
           </motion.article>
         ))}</AnimatePresence></div>
       ) : <div className="panel empty-state"><span className="empty-icon">⌕</span><h2>No matches found</h2><p>Try a different name or phone number.</p></div>}

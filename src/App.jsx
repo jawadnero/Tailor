@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { LanguageProvider, useLanguage } from './i18n'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
-import { currentUser, logout } from './Store.js'
+import { currentUser, logout } from './store.js'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
@@ -23,6 +24,7 @@ function Workspace({ user }) {
   const navigate = useNavigate()
   const location = useLocation()
   const [moreOpen, setMoreOpen] = useState(false)
+  const { lang, setLang } = useLanguage()
 
   const signOut = () => {
     logout()
@@ -33,7 +35,7 @@ function Workspace({ user }) {
     <div className="app-shell">
       <motion.aside className="sidebar" initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
         <Link to="/dashboard" className="brand"><span className="brand-mark">✂</span><span>Thread &amp; Needle<small>TAILOR WORKSPACE</small></span></Link>
-        <div className="sidebar-label">MENU</div>
+        <div className="sidebar-label">MENU / مینو</div>
         <nav className="side-links">
           {menu.map((item) => (
             <Link key={item.to} to={item.to} className={location.pathname.startsWith(item.to) ? 'active' : ''}>
@@ -51,6 +53,7 @@ function Workspace({ user }) {
         <header className="topbar">
           <div className="mobile-brand"><span className="brand-mark">✂</span> Thread &amp; Needle</div>
           <div className="topbar-greeting">A simpler way to keep your work in order.</div>
+          <div className="language-switch" aria-label="Choose language"><button className={lang === "en" ? "chosen" : ""} onClick={() => setLang("en")}>English</button><button className={lang === "ur" ? "chosen" : ""} onClick={() => setLang("ur")}>اردو</button></div>
           <Link to="/settings" className="topbar-user"><span className="avatar">{user.name.charAt(0).toUpperCase()}</span><span>{user.name}</span></Link>
         </header>
         <AnimatePresence mode="wait">
@@ -83,10 +86,10 @@ export default function App() {
   useLocation()
   const user = currentUser()
   return (
-    <Routes>
+    <LanguageProvider><Routes>
       <Route path="/" element={user ? <Navigate to="/dashboard" replace /> : <Home />} />
       <Route path="/login" element={user ? <Navigate to="/dashboard" replace /> : <Login />} />
       <Route path="/*" element={user ? <Workspace user={user} /> : <Navigate to="/login" replace />} />
-    </Routes>
+    </Routes></LanguageProvider>
   )
 }

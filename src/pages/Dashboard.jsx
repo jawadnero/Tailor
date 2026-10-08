@@ -1,39 +1,20 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { getCustomers, getOrders } from '../Store.js'
+import { getCustomers, getOrders } from '../store.js'
+import { useLanguage } from '../i18n'
 
-export default function Dashboard({ user }) {
-  const customers = getCustomers(user.id)
-  const orders = getOrders(user.id)
-  const pending = orders.filter((order) => order.status !== 'Delivered')
-  const completed = orders.filter((order) => order.status === 'Delivered')
-  const latest = orders.slice(0, 4)
-  const stats = [
-    { label: 'Customers', count: customers.length, icon: '♙', to: '/customers', tone: 'lavender' },
-    { label: 'All orders', count: orders.length, icon: '▤', to: '/orders', tone: 'peach' },
-    { label: 'Pending orders', count: pending.length, icon: '◷', to: '/orders?status=pending', tone: 'yellow' },
-    { label: 'Completed', count: completed.length, icon: '✓', to: '/orders?status=completed', tone: 'green' },
-  ]
-
-  return (
-    <main className="page dashboard-page">
-      <div className="page-heading dashboard-heading"><div><span className="eyebrow">YOUR WORKSPACE</span><h1>Welcome, {user.name}.</h1><p>Here’s what’s happening in your shop today.</p></div><Link to="/customers?add=true" className="btn"><span>＋</span> Add customer</Link></div>
-      <section className="stat-grid">{stats.map((stat, index) => (
-        <motion.div key={stat.label} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.07 }} whileHover={{ y: -3 }}>
-          <Link to={stat.to} className="stat-card"><span className={`stat-icon ${stat.tone}`}>{stat.icon}</span><span className="stat-label">{stat.label}</span><strong>{stat.count}</strong><span className="stat-more">View details <b>→</b></span></Link>
-        </motion.div>
-      ))}</section>
-
-      <section className="dashboard-lower">
-        <div className="panel recent-panel">
-          <div className="panel-heading"><div><h2>Recent orders</h2><p>A quick look at work in progress.</p></div><Link to="/orders" className="subtle-link">All orders <span>→</span></Link></div>
-          {latest.length ? <div className="recent-list">{latest.map((order) => (
-            <Link to="/orders" className="recent-order" key={order.id}><span className="order-symbol">✂</span><span className="recent-order-info"><strong>{order.customerName}</strong><small>{order.orderNumber} · {order.item}</small></span><span className={`status-pill ${order.status.toLowerCase()}`}>{order.status}</span></Link>
-          ))}</div> : <div className="empty-state compact"><span className="empty-icon">▤</span><strong>Your order list is ready</strong><p>Create an order from a customer profile to see it here.</p><Link className="subtle-link" to="/customers">View customers →</Link></div>}
-        </div>
-        <div className="panel quick-panel"><span className="eyebrow">QUICK ACTIONS</span><h2>What would you like to do?</h2><Link to="/customers?add=true" className="quick-action"><span className="quick-icon">＋</span><span><strong>Add a customer</strong><small>Save their details and fitting notes</small></span><b>→</b></Link><Link to="/orders/new" className="quick-action"><span className="quick-icon soft">▤</span><span><strong>Create an order</strong><small>Start tracking your next job</small></span><b>→</b></Link></div>
-      </section>
-      <div className="dashboard-note"><span>✦</span><p><strong>A little tip</strong> Save a customer’s measurements once, and they’ll be ready for every future order.</p><Link to="/customers">Open customer book →</Link></div>
-    </main>
-  )
+export default function Dashboard({user}) {
+ const {lang}=useLanguage(); const ur=lang==='ur'; const t=(en,urdu)=>ur?urdu:en
+ const customers=getCustomers(user.id), orders=getOrders(user.id)
+ const pending=orders.filter(o=>o.status!=='Delivered').length
+ return <main className="page easy-dashboard">
+  <section className="easy-welcome"><span className="easy-kicker">✂ {t('MY TAILOR SHOP','میری درزی کی دکان')}</span><h1>{t('Welcome','خوش آمدید')}, {user.name}!</h1><p>{t('Choose what you want to do. Just tap a big button.','جو کام کرنا ہے نیچے بڑا بٹن دبائیں۔')}</p></section>
+  <section className="easy-actions">
+   <Link to="/customers?add=true" className="easy-tile"><span className="easy-emoji">👤</span><strong>{t('Add Customer','نیا گاہک')}</strong><small>{t('Save name and phone','نام اور فون لکھیں')}</small></Link>
+   <Link to="/orders/new" className="easy-tile"><span className="easy-emoji">✂️</span><strong>{t('New Order','نیا آرڈر')}</strong><small>{t('Start a stitching job','سلائی کا کام شروع کریں')}</small></Link>
+   <Link to="/customers" className="easy-tile"><span className="easy-emoji">📏</span><strong>{t('Take Measurements','ناپ لکھیں')}</strong><small>{t('Choose customer, then tap Measurements','گاہک چنیں اور ناپ دبائیں')}</small></Link>
+   <Link to="/orders" className="easy-tile"><span className="easy-emoji">📦</span><strong>{t('Check Orders','آرڈر دیکھیں')}</strong><small>{t('Check work and delivery','کام اور ڈیلیوری دیکھیں')}</small></Link>
+  </section>
+  <section className="easy-counts"><Link to="/customers"><strong>{customers.length}</strong><span>{t('Customers','گاہک')}</span></Link><Link to="/orders?status=pending"><strong>{pending}</strong><span>{t('Work left','باقی کام')}</span></Link><Link to="/orders?status=completed"><strong>{orders.length-pending}</strong><span>{t('Delivered','دے دیے')}</span></Link></section>
+  <section className="easy-help"><h2>{t('How to use','استعمال کا طریقہ')}</h2><p>{t('1. Add customer → 2. Save measurements → 3. Make order → 4. Mark delivered','۱۔ گاہک شامل کریں ← ۲۔ ناپ لکھیں ← ۳۔ آرڈر بنائیں ← ۴۔ ڈیلیوری مکمل کریں')}</p></section>
+ </main>
 }
