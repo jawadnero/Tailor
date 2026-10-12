@@ -34,6 +34,7 @@ export const signup = (data) => {
   const user = { ...data, id: createId('t') }
   write('tailors', [...tailors, user])
   write('session', user.id)
+  window.dispatchEvent(new Event('darzi:auth-changed'))
   return user
 }
 
@@ -43,10 +44,14 @@ export const login = (identifier, password) => {
   )
   if (!user) throw new Error('Email, phone number, or password is incorrect.')
   write('session', user.id)
+  window.dispatchEvent(new Event('darzi:auth-changed'))
   return user
 }
 
-export const logout = () => localStorage.removeItem('session')
+export const logout = () => {
+  localStorage.removeItem('session')
+  window.dispatchEvent(new Event('darzi:auth-changed'))
+}
 export const currentUser = () => getTailors().find((tailor) => tailor.id === read('session', null)) || null
 
 export const getCustomers = (tailorId) =>

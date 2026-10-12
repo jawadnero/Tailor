@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { login, signup } from '../Store.js'
+import { login, signup } from '../store.js'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -36,11 +36,12 @@ export default function Login() {
   return (
     <main className="auth-layout">
       <aside className="auth-aside">
-        <Link to="/" className="brand"><span className="brand-mark">✂</span><span>Thread &amp; Needle<small>YOUR DIGITAL TAILOR NOTEBOOK</small></span></Link>
+        <Link to="/" className="brand"><span className="brand-mark">✂</span><span>Darzi <em>Market</em><small>TAILOR SHOP MANAGEMENT</small></span></Link>
         <motion.div className="auth-aside-copy" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .12 }}>
           <span className="eyebrow">MADE FOR THE WAY YOU WORK</span><h1>Your craft deserves a little more order.</h1><p>Customers, measurements and every order — together in one calm workspace.</p>
           <div className="auth-benefits"><span>✓ Fast customer lookup</span><span>✓ Measurements always ready</span><span>✓ Clear order progress</span></div>
         </motion.div>
+        <motion.div className="auth-tailoring-art" aria-hidden="true" initial={{opacity:0, y:20}} animate={{opacity:1,y:0}} transition={{duration:.8,delay:.25}} />
         <div className="auth-aside-note">✦ &nbsp;Simple tools for the work you love.</div>
         <div className="auth-orbit auth-orbit-one" /><div className="auth-orbit auth-orbit-two" />
       </aside>
@@ -64,7 +65,7 @@ export default function Login() {
                 <AnimatePresence>{error && <motion.p className="form-error" role="alert" initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{error}</motion.p>}</AnimatePresence>
                 <button className="btn auth-submit">{isSignup ? 'Create my workspace' : 'Log in'} <span>→</span></button>
               </form>
-              <p className="auth-toggle">{isSignup ? 'Already have an account?' : 'New to Thread & Needle?'} <button onClick={switchMode}>{isSignup ? 'Log in' : 'Create an account'}</button></p>
+              <p className="auth-toggle">{isSignup ? 'Already have an account?' : 'New to Darzi Market?'} <button onClick={switchMode}>{isSignup ? 'Log in' : 'Create an account'}</button></p>
               {!isSignup && <button className="demo-hint demo-button" type="button" onClick={() => setForm({ ...form, identifier: 'ali@demo.com', password: '1234' })}>Try demo account <strong>ali@demo.com</strong> · <span>Fill details</span></button>}
             </motion.div>
           </AnimatePresence>

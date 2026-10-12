@@ -1,0 +1,1 @@
+Updated dashboard and workspace to accessible orange-white Google-inspired styling. Large touch targets, simple language, responsive layout and bilingual support retained. Recent orders added. Original app data logic preserved.

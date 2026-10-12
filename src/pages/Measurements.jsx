@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { getCustomer, saveMeasurements } from '../Store.js'
+import { getCustomer, saveMeasurements } from '../store.js'
 
 const groups = [
   { title: 'Shirt measurements', fields: [['shirtLength', 'Length'], ['shoulder', 'Shoulder'], ['chest', 'Chest'], ['shirtWaist', 'Waist'], ['sleeve', 'Sleeve'], ['neck', 'Neck']] },

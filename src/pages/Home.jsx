@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="landing">
       <motion.header className="landing-nav" initial={{ y: -24, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-        <Link to="/" className="brand"><span className="brand-mark">✂</span><span>Thread &amp; Needle<small>YOUR DIGITAL TAILOR NOTEBOOK</small></span></Link>
+        <Link to="/" className="brand"><span className="brand-mark">✂</span><span>Darzi Market<small>TAILOR SHOP MANAGEMENT</small></span></Link>
         <nav><a href="#features">Features</a><a href="#how-it-works">How it works</a><Link className="btn btn-light" to="/login">Log in</Link></nav>
       </motion.header>
 
@@ -27,18 +27,10 @@ export default function Home() {
             </motion.div>
             <div className="hero-trust"><span>✓</span> Simple to use <span>·</span> Works on your phone <span>·</span> Your data stays on this device</div>
           </div>
-          <motion.div className="hero-art" initial={{ opacity: 0, scale: 0.94, rotate: 1 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 0.6, delay: 0.16 }}>
-            <div className="art-sun" />
-            <div className="tape tape-one">· · · · · · · · · · · · · · · · · ·</div>
-            <div className="sewing-card">
-              <div className="sewing-head"><span>✳</span><div><strong>Today’s work</strong><small>YOUR SHOP AT A GLANCE</small></div><b className="live-dot" /></div>
-              <div className="mini-order"><span className="mini-icon">♙</span><div><strong>Customer fitting</strong><small>Shirt · 6 measurements saved</small></div><span className="mini-status">IN PROGRESS</span></div>
-              <div className="mini-order"><span className="mini-icon pale">▤</span><div><strong>New order</strong><small>Shalwar Kameez · Due Friday</small></div><span className="mini-status new">NEW</span></div>
-              <div className="stitch-line" />
-              <div className="measure-card"><span>✂</span><div><strong>Made to fit.</strong><small>Measurements ready whenever you are.</small></div></div>
-            </div>
-            <div className="floating-tag tag-top">✦ <span>Made for your craft</span></div>
-            <div className="floating-tag tag-bottom"><span className="tag-check">✓</span><span>One tidy place for it all</span></div>
+          <motion.div className="hero-art hero-art-illustrated" initial={{ opacity: 0, y: 35, scale: .96 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: .85, ease: [0.2, 0.8, 0.2, 1], delay: .16 }}>
+            <motion.img className="tailor-hero-picture" src="/tailor-hero-reference.webp" alt="Tailoring tools, mannequin, fabric and an illustrated work dashboard" animate={{ y: [0, -13, 0] }} transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }} />
+            <motion.span className="hero-sparkle hero-sparkle-one" aria-hidden="true" animate={{ y: [0,-12,0], rotate: [0,20,0] }} transition={{ duration: 5, repeat: Infinity }}>✦</motion.span>
+            <motion.span className="hero-sparkle hero-sparkle-two" aria-hidden="true" animate={{ y: [0,12,0] }} transition={{ duration: 6, repeat: Infinity }}>✧</motion.span>
           </motion.div>
         </section>
 
@@ -59,7 +51,7 @@ export default function Home() {
         </section>
         <section className="landing-cta"><div><span className="eyebrow">READY WHEN YOU ARE</span><h2>Keep your shop in good order.</h2></div><Link className="btn btn-white" to="/login?register=true">Create your account <span>→</span></Link></section>
       </main>
-      <footer className="landing-footer"><Link to="/" className="brand"><span className="brand-mark">✂</span><span>Thread &amp; Needle</span></Link><span>A simple digital notebook for your tailor shop.</span><span>Thread &amp; Needle</span></footer>
+      <footer className="landing-footer"><Link to="/" className="brand"><span className="brand-mark">✂</span><span>Darzi Market</span></Link><span>Simple tools for your tailor shop.</span><span>Darzi Market</span></footer>
     </div>
   )
 }

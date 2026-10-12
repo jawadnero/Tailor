@@ -6,7 +6,7 @@ const originals=new WeakMap()
 const Context=createContext({lang:'en',setLang:()=>{}})
 export const useLanguage=()=>useContext(Context)
 export function LanguageProvider({children}){
- const [lang,setLangState]=useState(()=>localStorage.getItem('darzi-language')==='ur'?'ur':'en')
+ const [lang,setLangState]=useState('en')
  const setLang=(v)=>{localStorage.setItem('darzi-language',v);setLangState(v)}
  useEffect(()=>{
   document.documentElement.lang=lang

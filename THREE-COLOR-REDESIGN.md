@@ -1,0 +1,1 @@
+Three-color theme applied across landing, login/register, dashboard and internal modules. Primary: #6336E8, Navy: #172B3A, White: #FFFFFF. Lighter tonal shades are used for borders/backgrounds. Existing routes and data logic preserved.

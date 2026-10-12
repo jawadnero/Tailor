@@ -1,0 +1,1 @@
+Darzi Market refresh: Ivory #F8F7F4, Deep Navy #172B3A, Muted Gold #C58B45. Landing, authentication and workspace share design tokens. Existing Framer Motion entrance/page animations retained and refined; dashboard stagger, hover lift, floating accents and reduced-motion accessibility added. Run npm install then npm run dev.
