@@ -781,7 +781,6 @@ body{font-family:'DM Sans',Arial,sans-serif}
 @media(max-width:700px){.app-shell .sidebar{width:auto!important;min-width:0!important}.app-shell .easy-welcome{padding:26px!important;min-height:170px!important}.welcome-decoration{font-size:70px;right:1%}.app-shell .easy-tile{min-height:115px!important}.app-shell .easy-counts a{flex-wrap:wrap!important;justify-content:center!important}.app-shell .easy-counts a:before{display:none}}
 
 /* REFERENCE DASHBOARD: dedicated design, appended last to override older themes */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
 .app-shell,.app-shell *{font-family:'DM Sans',Arial,sans-serif}
 .app-shell .sidebar{width:265px!important;min-width:265px!important;padding:24px 16px!important;box-shadow:none!important;border-right:1px solid #FFFFFF!important}
 .app-shell .brand{font-size:23px!important;margin:0 8px 28px!important;display:flex!important;gap:12px!important;align-items:center!important}
