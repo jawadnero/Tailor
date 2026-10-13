@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { getTailors, addOrder } from '../store.js'
+import { getTailors, addOrder } from '../Store.js'
 
 const FIELDS = [['chest', 'Chest'], ['waist', 'Waist'], ['shoulder', 'Shoulder'], ['sleeve', 'Sleeve'], ['length', 'Length']]
 

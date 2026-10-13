@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { addCustomer, deleteCustomer, getCustomers, updateCustomer } from '../store.js'
+import { addCustomer, deleteCustomer, getCustomers, updateCustomer } from '../Store.js'
 
 const emptyForm = { name: '', phone: '', address: '', notes: '' }
 

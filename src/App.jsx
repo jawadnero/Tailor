@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { LanguageProvider } from './i18n'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
-import { currentUser, logout, getOrders } from './store.js'
+import { currentUser, logout, getOrders } from './Store.js'
 const getOrdersForBadge = (id) => getOrders(id).filter(o => o.status !== 'Delivered').length
 import Home from './pages/Home'
 import Login from './pages/Login'

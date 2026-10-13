@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { getOrders, updateOrder } from '../store.js'
+import { getOrders, updateOrder } from '../Store.js'
 
 const STATUSES = ['New', 'Cutting', 'Stitching', 'Ready', 'Delivered']
 const formatDate = (date) => date ? new Date(`${date}T00:00:00`).toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) : 'Not set'

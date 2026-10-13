@@ -1,7 +1,7 @@
 import Icon from '../Icon'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { getCustomers, getOrders } from '../store.js'
+import { getCustomers, getOrders } from '../Store.js'
 const fmt = n => Number(n||0).toLocaleString('en-PK')
 const icons = ['users','bag','clock','check']
 export default function Dashboard({user}) {
